@@ -1,14 +1,17 @@
-<?php 
+<?php
 
 class Glew_Service_Model_Types_InventoryItem
 {
-    public function parse($item)
+    public function parse($product)
     {
-    	$this->id = $item->getItemId();
-    	$this->product_id = $item->getProductId();
-        $this->qty = $item->getQty();
-        
+        $stock = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
+        $this->id = $stock->getItemId();
+        $this->product_id = $product->getId();
+        $this->qty = $stock->getQty();
+        $this->price = $product->getPrice();
+        $this->cost = $product->getCost();
+
         return $this;
     }
-    
 }
+
