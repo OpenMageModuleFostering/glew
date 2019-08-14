@@ -22,7 +22,8 @@ class Glew_Service_Model_Types_Customers
         } else {
             $collection = Mage::getModel('customer/customer')->getCollection();
         }
-        $collection->addAttributeToFilter('store_id', ['in' => [$helper->getStore()->getStoreId(), Mage::getModel('core/store')->load('admin', 'code')->getId()]]);
+        /*$collection->addAttributeToFilter('store_id', ['in' => [$helper->getStore()->getStoreId(), Mage::getModel('core/store')->load('admin', 'code')->getId()]]);*/
+	$collection->addAttributeToFilter('store_id', $helper->getStore()->getStoreId());
         $collection->setOrder('created_at', $sortDir);
         $collection->setCurPage($pageNum);
         $collection->setPageSize($pageSize);
