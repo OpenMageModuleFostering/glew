@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Glew",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "",
+    "description": "Magento analytics & reporting.",
+    "authors": [
+    {
+        "name": "Glew",
+        "email": "jed.young@glew.io"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
