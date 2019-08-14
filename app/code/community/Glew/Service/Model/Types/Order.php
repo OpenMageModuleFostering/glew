@@ -23,7 +23,11 @@ class Glew_Service_Model_Types_Order
         $this->shipping_total = round($order->getShippingAmount(), 2);
         $this->shipping_tax = round($order->getShippingTaxAmount(), 2);
         $this->shipping_description = $order->getShippingDescription();
-        $this->payment_method = $order->getPayment()->getMethodInstance()->getTitle();
+        try {
+            $this->payment_method = $order->getPayment()->getMethodInstance()->getTitle();
+        } catch (Exception $e) {
+            $this->payment_method = '';
+        }
 
         $this->discount_amount = round($order->getDiscountAmount(), 2);
         $this->discount_description = $order->getDiscountDescription();
