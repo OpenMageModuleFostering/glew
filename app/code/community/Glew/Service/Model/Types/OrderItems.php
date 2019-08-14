@@ -9,6 +9,8 @@ class Glew_Service_Model_Types_OrderItems
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();
+        $this->pageNum = $pageNum;
+
         $attribute = Mage::getSingleton('eav/config')->getAttribute(Mage_Catalog_Model_Product::ENTITY, 'cost');
         if($startDate && $endDate) {
             $from = date('Y-m-d 00:00:00', strtotime($startDate));
@@ -19,13 +21,15 @@ class Glew_Service_Model_Types_OrderItems
         } else {
             $collection = Mage::getModel('sales/order_item')->getCollection();
         }
+        $collection->addAttributeToFilter('main_table.store_id', $helper->getStore()->getStoreId());
+        $resource = Mage::getSingleton('core/resource');
+        $catProdEntDecTable = $resource->getTableName('catalog_product_entity_decimal');
         $collection->getSelect()->joinLeft(
-            array('cost' => 'catalog_product_entity_decimal'),
+            array('cost' => $catProdEntDecTable),
             "main_table.product_id = cost.entity_id AND cost.attribute_id = {$attribute->getId()}",
             array('cost' => 'value')
         );
         $collection->setOrder('created_at', $sortDir);
-        $this->pageNum = $pageNum;
         $collection->setCurPage($pageNum);
         $collection->setPageSize($pageSize);
         if($collection->getLastPageNumber() < $pageNum){

@@ -9,6 +9,7 @@ class Glew_Service_Model_Types_Orders
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();
+        $this->pageNum = $pageNum;
 
         if($startDate && $endDate) {
             $from = date('Y-m-d 00:00:00', strtotime($startDate));
@@ -18,10 +19,10 @@ class Glew_Service_Model_Types_Orders
         } else {
             $collection = Mage::getModel('sales/order')->getCollection();
         }
+        $collection->addAttributeToFilter('main_table.store_id', $helper->getStore()->getStoreId());
         $collection->addAttributeToSort('created_at', $sortDir);
         $collection->setCurPage($pageNum);
         $collection->setPageSize($pageSize);
-        $this->pageNum = $pageNum;
 
         if($collection->getLastPageNumber() < $pageNum){
           return $this;

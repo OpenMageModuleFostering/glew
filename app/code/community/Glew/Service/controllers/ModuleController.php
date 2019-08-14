@@ -53,6 +53,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_abandonedCarts')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'abandonedCarts');
         }
     }
@@ -64,6 +67,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_customers')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'customers');
         }
     }
@@ -76,6 +82,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_orders')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'orders');
         }
     }
@@ -87,6 +96,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_orderItems')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'orderItems');
         }
     }
@@ -95,9 +107,12 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
     {
         try {
             $this->_initRequest();
-            $collection = Mage::getModel('glew/types_stores')->load();
+            $collection = Mage::getModel('glew/types_stores')->load($this->_pageSize, $this->_pageNum);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'stores');
         }
     }
@@ -109,6 +124,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_subscribers')->load($this->_pageSize, $this->_pageNum, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'subscribers');
         }
     }
@@ -120,6 +138,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_products')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'products');
         }
     }
@@ -131,6 +152,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_productAlerts')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'productAlerts');
         }
     }
@@ -142,6 +166,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_categories')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'categories');
         }
     }
@@ -178,6 +205,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_extensions')->load($this->_pageSize, $this->_pageNum, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'extensions');
         }
     }
@@ -189,6 +219,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_refundItems')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'refund items');
         }
     }
@@ -200,6 +233,9 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             $collection = Mage::getModel('glew/types_refunds')->load($this->_pageSize, $this->_pageNum, $this->_startDate, $this->_endDate, $this->_sortDir, $this->_filterField);
             $this->_sendResponse($collection);
         } catch(Exception $e) {
+            if($e->getCode() != 401) {
+                print_r($e);
+            }
             $this->_helper->logException($e, 'refunds');
         }
     }
@@ -218,12 +254,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
             return true;
         }
 
-        if(!$this->_config['security_token']) {
-            $setup = Mage::getModel('glew/resource_mysql4_setup');
-            $token = $setup->createSecurityToken();
-        } else {
-            $token = $this->_config['security_token'];
-        }
+        $token = $this->_config['security_token'];
 
         $authToken = (isset($_SERVER['HTTP_X_GLEW_TOKEN']) ? $_SERVER['HTTP_X_GLEW_TOKEN'] : $_SERVER['X_GLEW_TOKEN']);
 
@@ -232,7 +263,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
 
         if(trim( $token ) != trim($authToken)) {
-            Mage::log('Glew feed request with invalid security token: ' . $this->getRequest()->getParam('token') . ' compared to stored token: ' . $token);
+            $this->_helper->log('Glew feed request with invalid security token: ' . $authToken . ' compared to stored token: ' . $token);
             $this->_reject();
         }
     }
@@ -240,7 +271,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
     private function _reject()
     {
         $this->getResponse()->setHttpResponseCode(401)->setBody('Invalid security token or module disabled');
-        throw new Exception('Invalid security token or module disabled');
+        throw new Exception('Invalid security token or module disabled', 401);
     }
 
 }
