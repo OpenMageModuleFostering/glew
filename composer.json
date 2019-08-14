@@ -3,11 +3,11 @@
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
-    "description": "Glew provides the world of ecommerce with reporting, insights and predictive tools that enable growth and drive profitability.",
+    "description": "Glew provides the world of e-commerce with reporting, insights and predictive tools that enable growth and drive profitability.",
     "authors": [
     {
         "name": "Glew",
-        "email": "jed.young@glew.io"
+        "email": "ryan.currington@glew.io"
     }
 ],
     "suggest": {

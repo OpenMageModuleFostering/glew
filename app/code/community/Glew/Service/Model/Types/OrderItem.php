@@ -4,6 +4,9 @@ class Glew_Service_Model_Types_OrderItem
 {
     public function parse($orderItem)
     {
+	if($orderItem->getParentItemId()) {
+		return;
+	}
         $this->order_item_id = $orderItem->getId();
         $this->order_id = $orderItem->getOrderId();
         $this->created_at = $orderItem->getCreatedAt();
