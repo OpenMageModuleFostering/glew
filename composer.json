@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Glew",
+    "name": "OpenMageModuleFostering\/Glew",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Glew provides the world of e-commerce with reporting, insights and predictive tools that enable growth and drive profitability.",
     "authors": [
-    {
-        "name": "Glew",
-        "email": "integration@glew.io"
-    }
-],
+        {
+            "name": "Glew",
+            "email": "integration@glew.io"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
